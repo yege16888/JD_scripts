@@ -24,6 +24,29 @@ jobs:
           echo "=================="
           echo "# 更新时间⌚️ 
           > $(date +%Y%m%d%H%M%S)" > README.md
+      - name: "clone NobyDa"
+        run: |
+          rm -rf NobyDa
+          git clone -b master https://github.com/NobyDa/Script.git
+          cd Script 
+          rm -rf .git 
+          rm README.md
+          echo "=================="
+          cd ..
+          \mv Script NobyDa
+          echo "# 更新时间⌚️ 
+          > $(date +%Y%m%d%H%M%S)" > README.md
+      - name: "clone My-Actions"
+        run: |
+          rm -rf My-Actions
+          git clone https://github.com/BlueskyClouds/My-Actions.git
+          cd My-Actions 
+          rm -rf .git 
+          echo "=================="
+          #\cp -r ./* ../NobyDa
+          cd ..
+          echo "# 更新时间⌚️ 
+          > $(date +%Y%m%d%H%M%S)" > README.md
       - name: Commit files
         run: |
           pwd
