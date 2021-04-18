@@ -1,13 +1,13 @@
 name: 'GitHub Actions pull'
 
 on:
-  push:
-    branches: 
-      - master
   schedule:
-   - cron: '0,30 * * * *'
+    - cron: '0,30 * * * *'
+  workflow_dispatch:
   watch:
     types: started
+  push:
+    branches: [ master ]
 jobs:
   jdbot_pull:
     runs-on: ubuntu-latest
