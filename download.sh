@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 downpath=download
-monkpath=diyscripts
+monkpath=monkcoder_dust
 
 
 function monkcoder()
@@ -9,7 +9,7 @@ function monkcoder()
 	if [[ ! -d $downpath ]]; then
 	mkdir $downpath
 	fi
-	#创建diyscripts文件夹
+	#创建monk_coder文件夹
 	if [[ ! -d $monkpath ]]; then
 	mkdir $monkpath
 	fi
