@@ -15,7 +15,7 @@ function monkcoder()
 	fi
 	
 	default_root_id="$(curl -s https://share.r2ray.com/dust/ | grep -oE "default_root_id[^,]*" | cut -d\' -f2)"
-	folders="$(curl -sX POST "https://share.r2ray.com/dust/?rootId=${default_root_id}" | grep -oP "name.*?\.folder" | cut -d, -f1 | cut -d\" -f3 | grep -v "backup\|rewrite" | tr "\n" " ")"
+	folders="$(curl -sX POST "https://share.r2ray.com/dust/?rootId=${default_root_id}" | grep -oP "name.*?\.folder" | cut -d, -f1 | cut -d\" -f3 | grep -v "backup\|rewrite\|member" | tr "\n" " ")"
 	test -z "$folders" && return 0 || rm -rf $downpath/*
 	for folder in $folders; do
 	    jsnames="$(curl -sX POST "https://share.r2ray.com/dust/${folder}/?rootId=${default_root_id}" | grep -oP "name.*?\.js\"" | grep -oE "[^\"]*\.js\"" | cut -d\" -f1 | tr "\n" " ")"
